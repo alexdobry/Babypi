@@ -13,6 +13,9 @@
 		FA892DAF1FEFC7280071BB3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA892DAD1FEFC7280071BB3B /* LaunchScreen.storyboard */; };
 		FA892DB81FEFC8920071BB3B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892DB71FEFC8920071BB3B /* Extensions.swift */; };
 		FA892DBA1FEFC9B80071BB3B /* BabypiPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892DB91FEFC9B80071BB3B /* BabypiPlayerViewController.swift */; };
+		FA892DBC1FEFD37F0071BB3B /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DBB1FEFD37F0071BB3B /* NMSSH.framework */; };
+		FA892DBF1FEFD3C50071BB3B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */; };
+		FA892DC11FEFD42E0071BB3B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DC01FEFD42E0071BB3B /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,10 @@
 		FA892DB01FEFC7280071BB3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA892DB71FEFC8920071BB3B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FA892DB91FEFC9B80071BB3B /* BabypiPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabypiPlayerViewController.swift; sourceTree = "<group>"; };
+		FA892DBB1FEFD37F0071BB3B /* NMSSH.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMSSH.framework; sourceTree = "<group>"; };
+		FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FA892DC01FEFD42E0071BB3B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FA892DC21FEFD4800071BB3B /* Babypi-Bridging-Header..h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Babypi-Bridging-Header..h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA892DC11FEFD42E0071BB3B /* libz.tbd in Frameworks */,
+				FA892DBF1FEFD3C50071BB3B /* CFNetwork.framework in Frameworks */,
+				FA892DBC1FEFD37F0071BB3B /* NMSSH.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +52,7 @@
 			children = (
 				FA892DA31FEFC7280071BB3B /* Babypi */,
 				FA892DA21FEFC7280071BB3B /* Products */,
+				FA892DBD1FEFD3C40071BB3B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +67,7 @@
 		FA892DA31FEFC7280071BB3B /* Babypi */ = {
 			isa = PBXGroup;
 			children = (
+				FA892DC21FEFD4800071BB3B /* Babypi-Bridging-Header..h */,
 				FA892DB61FEFC88B0071BB3B /* model */,
 				FA892DA41FEFC7280071BB3B /* AppDelegate.swift */,
 				FA892DA81FEFC7280071BB3B /* Main.storyboard */,
@@ -73,6 +85,16 @@
 				FA892DB71FEFC8920071BB3B /* Extensions.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		FA892DBD1FEFD3C40071BB3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA892DC01FEFD42E0071BB3B /* libz.tbd */,
+				FA892DBB1FEFD37F0071BB3B /* NMSSH.framework */,
+				FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,10 +310,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3EAAJC8WM3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Babypi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-dobrynin.Babypi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Alex/Developer/Babypi/Babypi/Babypi-Bridging-Header..h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -303,10 +330,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3EAAJC8WM3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Babypi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-dobrynin.Babypi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Alex/Developer/Babypi/Babypi/Babypi-Bridging-Header..h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

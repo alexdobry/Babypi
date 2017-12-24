@@ -16,5 +16,7 @@ class BabypiPlayerViewController: AVPlayerViewController {
         
         player = AVPlayer(url: URL(string: "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8")!)
         player?.play()
+        
+        NMSSHSession.connect(toHost: "", withUsername: "")
     }
 }
