@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,11 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="babypi" translatesAutoresizingMaskIntoConstraints="NO" id="k4B-Vr-RLp">
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="babypi" translatesAutoresizingMaskIntoConstraints="NO" id="k4B-Vr-RLp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Babypi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lp9-fO-fdy">
-                                <rect key="frame" x="148.5" y="318" width="77.5" height="31.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face" translatesAutoresizingMaskIntoConstraints="NO" id="uBV-cL-BSb">
+                                <rect key="frame" x="0.0" y="-179" width="375" height="1024"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Babypi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l28-80-Fxv">
+                                <rect key="frame" x="149" y="486" width="78" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -30,11 +34,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lp9-fO-fdy" firstAttribute="centerY" secondItem="k4B-Vr-RLp" secondAttribute="centerY" id="8ur-Bc-jho"/>
+                            <constraint firstItem="uBV-cL-BSb" firstAttribute="centerY" secondItem="k4B-Vr-RLp" secondAttribute="centerY" id="Awg-W1-kfH"/>
                             <constraint firstItem="k4B-Vr-RLp" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="CZt-Bo-0s3"/>
-                            <constraint firstItem="lp9-fO-fdy" firstAttribute="centerX" secondItem="k4B-Vr-RLp" secondAttribute="centerX" id="HB9-bB-sK4"/>
+                            <constraint firstItem="l28-80-Fxv" firstAttribute="centerY" secondItem="k4B-Vr-RLp" secondAttribute="centerY" multiplier="1.5" constant="1" id="P5b-3e-dIy"/>
                             <constraint firstAttribute="trailing" secondItem="k4B-Vr-RLp" secondAttribute="trailing" id="W7M-VO-feS"/>
+                            <constraint firstItem="uBV-cL-BSb" firstAttribute="trailing" secondItem="k4B-Vr-RLp" secondAttribute="trailing" id="eHU-OX-1QR"/>
                             <constraint firstItem="k4B-Vr-RLp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eUP-3K-Cbi"/>
+                            <constraint firstItem="l28-80-Fxv" firstAttribute="centerX" secondItem="k4B-Vr-RLp" secondAttribute="centerX" id="sbr-DQ-z8H"/>
+                            <constraint firstItem="uBV-cL-BSb" firstAttribute="leading" secondItem="k4B-Vr-RLp" secondAttribute="leading" id="xOv-dF-ojX"/>
                             <constraint firstItem="k4B-Vr-RLp" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="xjb-af-QkR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -47,5 +54,6 @@
     </scenes>
     <resources>
         <image name="babypi" width="1024" height="1024"/>
+        <image name="face" width="1024" height="1024"/>
     </resources>
 </document>

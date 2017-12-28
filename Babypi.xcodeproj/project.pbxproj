@@ -16,6 +16,15 @@
 		FA892DBC1FEFD37F0071BB3B /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DBB1FEFD37F0071BB3B /* NMSSH.framework */; };
 		FA892DBF1FEFD3C50071BB3B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */; };
 		FA892DC11FEFD42E0071BB3B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DC01FEFD42E0071BB3B /* libz.tbd */; };
+		FA892DC41FEFD6A10071BB3B /* SSHService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892DC31FEFD6A10071BB3B /* SSHService.swift */; };
+		FAE61E9F1FF3DABC00553EA2 /* UnixResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61E9E1FF3DABC00553EA2 /* UnixResponse.swift */; };
+		FAE61EA11FF3DC8C00553EA2 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EA01FF3DC8C00553EA2 /* Command.swift */; };
+		FAE61EA31FF3DCB100553EA2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EA21FF3DCB100553EA2 /* Result.swift */; };
+		FAE61EA61FF3DEC000553EA2 /* BabypiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EA51FF3DEC000553EA2 /* BabypiTableViewController.swift */; };
+		FAE61EAB1FF3E08900553EA2 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EAA1FF3E08900553EA2 /* PlayerView.swift */; };
+		FAE61EB31FF3F10E00553EA2 /* BabypiDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EB21FF3F10E00553EA2 /* BabypiDashboard.swift */; };
+		FAE61EB71FF3F5CA00553EA2 /* SensorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EB61FF3F5CA00553EA2 /* SensorTableViewCell.swift */; };
+		FAE61EB91FF3F6A600553EA2 /* SensorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE61EB81FF3F6A600553EA2 /* SensorTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +40,15 @@
 		FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FA892DC01FEFD42E0071BB3B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FA892DC21FEFD4800071BB3B /* Babypi-Bridging-Header..h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Babypi-Bridging-Header..h"; sourceTree = "<group>"; };
+		FA892DC31FEFD6A10071BB3B /* SSHService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHService.swift; sourceTree = "<group>"; };
+		FAE61E9E1FF3DABC00553EA2 /* UnixResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnixResponse.swift; sourceTree = "<group>"; };
+		FAE61EA01FF3DC8C00553EA2 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		FAE61EA21FF3DCB100553EA2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		FAE61EA51FF3DEC000553EA2 /* BabypiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabypiTableViewController.swift; sourceTree = "<group>"; };
+		FAE61EAA1FF3E08900553EA2 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		FAE61EB21FF3F10E00553EA2 /* BabypiDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabypiDashboard.swift; sourceTree = "<group>"; };
+		FAE61EB61FF3F5CA00553EA2 /* SensorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorTableViewCell.swift; sourceTree = "<group>"; };
+		FAE61EB81FF3F6A600553EA2 /* SensorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +85,8 @@
 		FA892DA31FEFC7280071BB3B /* Babypi */ = {
 			isa = PBXGroup;
 			children = (
+				FAE61EA71FF3DFD500553EA2 /* view */,
+				FAE61EA41FF3DEB200553EA2 /* controller */,
 				FA892DC21FEFD4800071BB3B /* Babypi-Bridging-Header..h */,
 				FA892DB61FEFC88B0071BB3B /* model */,
 				FA892DA41FEFC7280071BB3B /* AppDelegate.swift */,
@@ -83,6 +103,11 @@
 			isa = PBXGroup;
 			children = (
 				FA892DB71FEFC8920071BB3B /* Extensions.swift */,
+				FA892DC31FEFD6A10071BB3B /* SSHService.swift */,
+				FAE61E9E1FF3DABC00553EA2 /* UnixResponse.swift */,
+				FAE61EA01FF3DC8C00553EA2 /* Command.swift */,
+				FAE61EA21FF3DCB100553EA2 /* Result.swift */,
+				FAE61EB21FF3F10E00553EA2 /* BabypiDashboard.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -95,6 +120,24 @@
 				FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAE61EA41FF3DEB200553EA2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAE61EA51FF3DEC000553EA2 /* BabypiTableViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		FAE61EA71FF3DFD500553EA2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FAE61EB81FF3F6A600553EA2 /* SensorTableViewCell.xib */,
+				FAE61EAA1FF3E08900553EA2 /* PlayerView.swift */,
+				FAE61EB61FF3F5CA00553EA2 /* SensorTableViewCell.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA892DAF1FEFC7280071BB3B /* LaunchScreen.storyboard in Resources */,
+				FAE61EB91FF3F6A600553EA2 /* SensorTableViewCell.xib in Resources */,
 				FA892DAC1FEFC7280071BB3B /* Assets.xcassets in Resources */,
 				FA892DAA1FEFC7280071BB3B /* Main.storyboard in Resources */,
 			);
@@ -169,9 +213,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE61EA61FF3DEC000553EA2 /* BabypiTableViewController.swift in Sources */,
 				FA892DBA1FEFC9B80071BB3B /* BabypiPlayerViewController.swift in Sources */,
+				FAE61EAB1FF3E08900553EA2 /* PlayerView.swift in Sources */,
 				FA892DB81FEFC8920071BB3B /* Extensions.swift in Sources */,
+				FA892DC41FEFD6A10071BB3B /* SSHService.swift in Sources */,
+				FAE61EB31FF3F10E00553EA2 /* BabypiDashboard.swift in Sources */,
+				FAE61E9F1FF3DABC00553EA2 /* UnixResponse.swift in Sources */,
+				FAE61EA31FF3DCB100553EA2 /* Result.swift in Sources */,
 				FA892DA51FEFC7280071BB3B /* AppDelegate.swift in Sources */,
+				FAE61EB71FF3F5CA00553EA2 /* SensorTableViewCell.swift in Sources */,
+				FAE61EA11FF3DC8C00553EA2 /* Command.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
