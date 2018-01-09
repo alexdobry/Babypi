@@ -5,3 +5,4 @@
 * [FruitNanny - RaspberryPI based Baby Monitor](https://ivadim.github.io/2017-08-21-fruitnanny/)
 * [RaspberryPI: Motion and Noise detection](https://blog.mornati.net/raspberrypi-motion-and-noise-detection/), [GitHub](https://github.com/alexdobry/ruby-noise-detection)
 * [rpush - The push notification service for Ruby](https://github.com/rpush/rpush)
+* [Widerstand und DHT22 Senspr](http://www.instructables.com/id/Raspberry-PI-and-DHT22-temperature-and-humidity-lo/)
