@@ -56,7 +56,10 @@ class BabypiTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: SensorTableViewCell.Identifier, bundle: nil), forCellReuseIdentifier: SensorTableViewCell.Identifier)
+        tableView.register(
+            UINib(nibName: SensorTableViewCell.Identifier, bundle: nil),
+            forCellReuseIdentifier: SensorTableViewCell.Identifier
+        )
         
         playerView.height = 300
         
