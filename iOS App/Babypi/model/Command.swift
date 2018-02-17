@@ -9,15 +9,29 @@
 import Foundation
 
 enum Command {
-    case on, off, shutdown
+    case cameraOn, cameraOff, shutdown
 }
 
+fileprivate let ShellScriptReturnValue = ">/dev/null 2>&1; echo $?"
+
 extension Command {
+    var title: String {
+        switch self {
+        case .cameraOn: return "Stream an"
+        case .cameraOff: return "Stream aus"
+        case .shutdown: return "Pi herunterfahren"
+        }
+    }
+    
+    var shellScriptWithReturn: String {
+        return shellScript.appending(ShellScriptReturnValue)
+    }
+    
     var shellScript: String {
         switch self {
-        case .on: return ""
-        case .off: return ""
-        case .shutdown: return "sudo shutdown -h now; echo $?"
+        case .cameraOn: return "sudo /home/pi/Babypi/picam.sh start"
+        case .cameraOff: return "sudo /home/pi/Babypi/picam.sh stop"
+        case .shutdown: return "sudo shutdown -h now"
         }
     }
     
@@ -25,5 +39,5 @@ extension Command {
         return f(self)
     }
     
-    static let all = [on, off, shutdown]
+    static let all = [cameraOn, cameraOff, shutdown]
 }

@@ -17,6 +17,8 @@
 		FA892DBF1FEFD3C50071BB3B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */; };
 		FA892DC11FEFD42E0071BB3B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DC01FEFD42E0071BB3B /* libz.tbd */; };
 		FA892DC41FEFD6A10071BB3B /* SSHService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892DC31FEFD6A10071BB3B /* SSHService.swift */; };
+		FA9F56B12038A5B6003EED21 /* CommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F56AF2038A5B6003EED21 /* CommandTableViewCell.swift */; };
+		FA9F56B22038A5B6003EED21 /* CommandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9F56B02038A5B6003EED21 /* CommandTableViewCell.xib */; };
 		FAE61E9F1FF3DABC00553EA2 /* UnixResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61E9E1FF3DABC00553EA2 /* UnixResponse.swift */; };
 		FAE61EA11FF3DC8C00553EA2 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EA01FF3DC8C00553EA2 /* Command.swift */; };
 		FAE61EA31FF3DCB100553EA2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EA21FF3DCB100553EA2 /* Result.swift */; };
@@ -41,6 +43,8 @@
 		FA892DC01FEFD42E0071BB3B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FA892DC21FEFD4800071BB3B /* Babypi-Bridging-Header..h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Babypi-Bridging-Header..h"; sourceTree = "<group>"; };
 		FA892DC31FEFD6A10071BB3B /* SSHService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHService.swift; sourceTree = "<group>"; };
+		FA9F56AF2038A5B6003EED21 /* CommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTableViewCell.swift; sourceTree = "<group>"; };
+		FA9F56B02038A5B6003EED21 /* CommandTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommandTableViewCell.xib; sourceTree = "<group>"; };
 		FAE61E9E1FF3DABC00553EA2 /* UnixResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnixResponse.swift; sourceTree = "<group>"; };
 		FAE61EA01FF3DC8C00553EA2 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		FAE61EA21FF3DCB100553EA2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				FAE61EB81FF3F6A600553EA2 /* SensorTableViewCell.xib */,
 				FAE61EAA1FF3E08900553EA2 /* PlayerView.swift */,
 				FAE61EB61FF3F5CA00553EA2 /* SensorTableViewCell.swift */,
+				FA9F56AF2038A5B6003EED21 /* CommandTableViewCell.swift */,
+				FA9F56B02038A5B6003EED21 /* CommandTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 				FAE61EB91FF3F6A600553EA2 /* SensorTableViewCell.xib in Resources */,
 				FA892DAC1FEFC7280071BB3B /* Assets.xcassets in Resources */,
 				FA892DAA1FEFC7280071BB3B /* Main.storyboard in Resources */,
+				FA9F56B22038A5B6003EED21 /* CommandTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +231,7 @@
 				FA892DA51FEFC7280071BB3B /* AppDelegate.swift in Sources */,
 				FAE61EB71FF3F5CA00553EA2 /* SensorTableViewCell.swift in Sources */,
 				FAE61EA11FF3DC8C00553EA2 /* Command.swift in Sources */,
+				FA9F56B12038A5B6003EED21 /* CommandTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
