@@ -14,7 +14,16 @@ class BabypiPlayerViewController: AVPlayerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        player = AVPlayer(url: URL(string: "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8")!)
-        player?.play()
+        play()
+    }
+    
+    func play() {
+        player = AVPlayer(url: URL(string: "http://babypi.local/hls/index.m3u8")!)
+        player!.play()
+    }
+    
+    func stop() {
+        player!.pause()
+        player = nil
     }
 }

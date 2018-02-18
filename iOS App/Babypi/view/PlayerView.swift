@@ -16,13 +16,10 @@ import AVKit
 */
 
 class PlayerView: UIView {
+    
     private var player: AVPlayer? {
-        get {
-            return playerLayer.player
-        }
-        set {
-            playerLayer.player = newValue
-        }
+        get { return playerLayer.player }
+        set { playerLayer.player = newValue }
     }
     
     private var playerLayer: AVPlayerLayer {
@@ -47,7 +44,7 @@ class PlayerView: UIView {
     var url: String? {
         didSet {
             if let url = url.flatMap(URL.init) {
-                playerLayer.videoGravity = .resizeAspectFill
+                playerLayer.videoGravity = .resizeAspect
                 
                 player = AVPlayer(url: url)
                 player?.play()

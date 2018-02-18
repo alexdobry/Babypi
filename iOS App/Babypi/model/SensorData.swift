@@ -1,5 +1,5 @@
 //
-//  BabypiDashboard.swift
+//  SensorData.swift
 //  Babypi
 //
 //  Created by Alex on 27.12.17.
@@ -8,12 +8,8 @@
 
 import Foundation
 
-struct SensorData {
+struct SensorData: Codable {
     let temperature: Double
     let humidity: Double
-}
-
-enum BabypiDashboard {
-    case sensor(data: SensorData)
-    case command(value: Command)
+    let timestamp: Date
 }
