@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct UnixResponse {
-    let success: Bool
-    let command: Command
+enum UnixResponse {
+    case binary(success: Bool, command: Command)
+    case data(value: String, command: Command)
 }
 
 protocol UnixResponseValidator {
@@ -24,6 +24,10 @@ struct DefaultUnixResponseValidator: UnixResponseValidator {
     private init() { }
     
     func validate(reponse: String, _ command: Command) -> UnixResponse {
-        return UnixResponse(success: reponse.contains("0"), command: command)
+        if command.shouldValidate {
+            return .binary(success: reponse.contains("0"), command: command)
+        } else {
+            return .data(value: reponse, command: command)
+        }
     }
 }

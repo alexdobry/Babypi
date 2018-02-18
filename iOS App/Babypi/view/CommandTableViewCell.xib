@@ -20,26 +20,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfZ-60-Tj9">
-                        <rect key="frame" x="20" y="51.5" width="42" height="20.5"/>
+                        <rect key="frame" x="20" y="51.5" width="425" height="20.5"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4cD-8J-eTw">
-                        <rect key="frame" x="425" y="51" width="20" height="20"/>
-                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="OfZ-60-Tj9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HL9-Di-OQr"/>
-                    <constraint firstItem="4cD-8J-eTw" firstAttribute="centerY" secondItem="OfZ-60-Tj9" secondAttribute="centerY" id="Z6C-6a-K2V"/>
                     <constraint firstItem="OfZ-60-Tj9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="w7X-CM-gAc"/>
-                    <constraint firstAttribute="trailing" secondItem="4cD-8J-eTw" secondAttribute="trailing" constant="20" symbolic="YES" id="wM1-nO-mxe"/>
+                    <constraint firstAttribute="trailing" secondItem="OfZ-60-Tj9" secondAttribute="trailing" constant="20" symbolic="YES" id="wAh-st-DrQ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="commandLabel" destination="OfZ-60-Tj9" id="YEB-oK-bkK"/>
-                <outlet property="spinner" destination="4cD-8J-eTw" id="Flh-nm-ceV"/>
             </connections>
             <point key="canvasLocation" x="106.5" y="93.5"/>
         </tableViewCell>

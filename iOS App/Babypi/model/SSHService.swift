@@ -60,7 +60,7 @@ final class SSHService {
         queue.async {
             var result: Result<UnixResponse>
             
-            if let unixReturn = self.session?.channel.execute(command.shellScriptWithReturn, error: &error, timeout: timeout as NSNumber), error == nil {
+            if let unixReturn = self.session?.channel.execute(command.shellScript, error: &error, timeout: timeout as NSNumber), error == nil {
                 let response = self.validator.validate(reponse: unixReturn, command)
                 
                 result = Result.success(response)
