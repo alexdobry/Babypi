@@ -7,7 +7,7 @@ pin = 24
 humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
 date = time.time()
 if humidity is not None and temperature is not None:
-    print('{{ "temperature": {0:0.1f}, "humidity": {1:0.1f}, "timestamp": {2:0.0f} }}'.format(temperature, humidity, date))
+    print('{ "status" : "OK", "temperature": {0:0.1f}, "humidity": {1:0.1f}, "timestamp": {2:0.0f} }'.format(temperature, humidity, date))
 else:
-    print('Failed to get reading. Try again!')
+    print('{ "status" : "KO", "error": "failed reading from sensor" }')
     sys.exit(1)

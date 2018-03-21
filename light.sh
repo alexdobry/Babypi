@@ -1,22 +1,19 @@
-#!/bin/sh
+#! /bin/sh
 
 light_pin=2
 gpio -g mode $light_pin out
 
-function on {
-	gpio -g write $light_pin 1
-}
-
-function off {
-        gpio -g write $light_pin 0
-}
-
-function status {
-	gpio -g read $light_pin
-}
-
-case $1 in  
-  on) on ;; 
-  off) off ;; 
-  status) status ;; 
+case "$1" in  
+	on) 
+		gpio -g write $light_pin 1
+		return $? ;;
+	off)
+        	gpio -g write $light_pin 0
+		return $? ;;
+	status)
+		gpio -g read $light_pin
+		return $? ;;
+	*)
+		echo "usage light {on|off|status}"
+		return 1 ;;
 esac
