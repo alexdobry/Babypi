@@ -50,25 +50,16 @@ class BabypiTableViewController: UITableViewController {
     
     @IBOutlet weak private var playerView: UIView!
     
-    private lazy var service: SSHService = {
-        let defaults = UserDefaults.standard
-        let connection = Connection(
-            host: defaults.host ?? "",
-            username: defaults.username ?? "",
-            password: defaults.password ?? ""
-        )
-        
-        let service = SSHService(connection: connection)
-        service.delegate = self
-        
-        return service
-    }()
+    private var indicator: UIActivityIndicatorView!
     
-    var commands: [(key: Section, value: [Command])] = [] {
+    private var commands: [(key: Section, value: [Command])] = [] {
         didSet { updateUI() }
     }
     
     private var sensorData: SensorData?
+    
+    var didTapSettings: () -> () = {}
+    var viewModel: WebbasedBabypiViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,28 +68,7 @@ class BabypiTableViewController: UITableViewController {
         setupPlayerView()
         setupRefreshControl()
         
-        service.connect()
-    }
-    
-    private var backgroundObserver: NSObjectProtocol?
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        backgroundObserver = NotificationCenter.default.addObserver(
-            forName: .UIApplicationDidEnterBackground,
-            object: nil,
-            queue: OperationQueue.main) { _ in
-                self.service.disconnect()
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if let backgroundObserver = backgroundObserver {
-            NotificationCenter.default.removeObserver(backgroundObserver)
-        }
+        viewModel.delegate = self
     }
     
     private func setupTableView() {
@@ -111,6 +81,8 @@ class BabypiTableViewController: UITableViewController {
             UINib(nibName: CommandTableViewCell.Identifier, bundle: nil),
             forCellReuseIdentifier: CommandTableViewCell.Identifier
         )
+        
+        commands = Dictionary(grouping: Command.all, by: { $0.section }).sorted(by: { $0.key < $1.key })
     }
     
     private func setupPlayerView() {
@@ -119,34 +91,22 @@ class BabypiTableViewController: UITableViewController {
     }
     
     private func setupRefreshControl() {
-        let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = .primaryColor
-        refreshControl.attributedTitle = nil
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        view.addSubview(indicator)
         
-        tableView.refreshControl = refreshControl
-        tableView.refreshControl!.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        tableView?.backgroundView?.layer.zPosition -= 1
+        indicator.tintColor = .primaryColor
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        indicator.isUserInteractionEnabled = false
+        
+        self.indicator = indicator
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if !commands.isEmpty {
-            tableView.backgroundView = nil
-            
-            return commands.count
-        } else {
-            let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-            noDataLabel.text = "No connection \n Pull to reconnect"
-            noDataLabel.textColor = .primaryColor
-            noDataLabel.textAlignment = .center
-            noDataLabel.numberOfLines = 2
-            noDataLabel.font = .preferredFont(forTextStyle: .title1)
-            
-            tableView.backgroundView = noDataLabel
-            
-            return 0
-        }
+        return commands.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -177,16 +137,24 @@ class BabypiTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        defer { tableView.deselectRow(at: indexPath, animated: true) }
+        tableView.deselectRow(at: indexPath, animated: true)
         
         let command = commands[indexPath.section].value[indexPath.row]
-        service.execute(command: command, defaultTimeout: command.timeout)
+        
+        switch command {
+        case .shutdown:
+            let shutDownAction = UIAlertAction(title: "Shutdown", style: .destructive, handler: { _ in
+                self.viewModel.perform(command: command)
+            })
+            
+            presentAlert(title: "Realy want to shut down?", message: nil, defaultAction: shutDownAction)
+            
+        case _: viewModel.perform(command: command)
+        }
     }
     
-    @objc func refresh(_ sender: UIRefreshControl) {
-        sender.attributedTitle = NSAttributedString(string: "reconnecting to raspbery pi ...")
-        
-        service.connect()
+    @IBAction func showSettings(_ sender: Any) {
+        didTapSettings()
     }
     
     private var playerViewController: BabypiPlayerViewController?
@@ -197,99 +165,63 @@ class BabypiTableViewController: UITableViewController {
         switch identifier {
         case "EmbededSegue":
             playerViewController = segue.destination as? BabypiPlayerViewController
-            
         default: break
         }
     }
-    
+
     // MARK: - Helper
     
     private func updateUI() {
         tableView.reloadData()
-        
-        showPlayer(true)
+
     }
     
     private func showPlayer(_ bool: Bool) { // TODO: add and remove from view
         if bool {
             playerViewController!.play()
-//            tableView.tableHeaderView = playerView
         } else {
             playerViewController!.stop()
-//            tableView.tableHeaderView = nil
         }
+    }
+    
+    private func presentAlert(title: String, message: String?, defaultAction: UIAlertAction?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        if let action = defaultAction {
+            alert.addAction(action)
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
-extension BabypiTableViewController: SSHServiceDelegate {
-    
-    func sshService(_ service: SSHService, connectionEstablished bool: Bool) {
-        debugPrint(#function, bool)
-        
-        if refreshControl?.isRefreshing ?? false {
-            refreshControl?.endRefreshing()
-        }
-        
-        if bool {
-            self.commands = Command.all.groupBy(key: { $0.section }).sorted(by: { $0.key < $1.key })
-        } else {
-            self.commands.removeAll()
-        }
+extension BabypiTableViewController: WebbasedBabypiViewModelDelegate {
+    func didStartRequest(for command: Command) {
+        indicator.startAnimating()
     }
     
-    func sshService(_ service: SSHService, startExecutingCommand command: Command) {
-        debugPrint(#function, command)
-
-        if let refreshControl = refreshControl {
-            let offset = CGPoint(x: 0, y: tableView.contentOffset.y - refreshControl.frame.size.height)
-            tableView.setContentOffset(offset, animated: true)
-         
-            refreshControl.beginRefreshing()
-            refreshControl.attributedTitle = NSAttributedString(string: "executing \(command.title)")
-        }
-    }
-    
-    func sshService(_ service: SSHService, endExecutingCommand result: Result<UnixResponse>) {
-        debugPrint(#function, result)
-        
-        if refreshControl?.isRefreshing ?? false {
-            refreshControl?.endRefreshing()
-        }
-        
-        var message: String
+    func didEndRequest(for command: Command, with result: Result<WebbasedReturn>) {
+        indicator.stopAnimating()
         
         switch result {
-        case .success(let response):
-            switch response {
-            case let .binary(success, command):
+        case .success(let s):
+            switch s {
+            case .sensorData(let sensor):
+                sensorData = sensor
+                tableView.reloadSections(IndexSet(integer: Section.sensor.hashValue), with: .automatic)
+                
+            case .simpleResponse(let response):
                 switch command {
-                case .cameraOff: showPlayer(false)
-                case .cameraOn: showPlayer(true)
+                case .cameraOn where response.status == "ok" : showPlayer(true)
+                case .cameraOn, .cameraOff: showPlayer(false)
                 case .shutdown, .temperature: break
                 }
                 
-                message = "\"\(command.title)\" \(success ? " was executed successfully" : "failed")"
-                
-            case let .data(value, command):
-                self.sensorData = value.data(using: .utf8).flatMap { data -> SensorData? in
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .secondsSince1970
-                    return try? decoder.decode(SensorData.self, from: data)
-                }
-                
-                message = "\"\(command.title)\" value is \(sensorData.debugDescription)"
+                presentAlert(title: response.status, message: response.message, defaultAction: nil)
             }
-
-        case .failure(let error):
-            message = "error message: \(error.localizedDescription)"
+        case .failure(let e):
+            presentAlert(title: "Server Error", message: e.localizedDescription, defaultAction: nil)
         }
-        
-        tableView.reloadData()
-        
-        let alert = UIAlertController(title: "Execution Result", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        alert.view.tintColor = .primaryColor
-        
-        present(alert, animated: true, completion: nil)
     }
 }
