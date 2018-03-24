@@ -17,21 +17,23 @@ extension Command {
         case .cameraOn: return "sudo /home/pi/Babypi/picam.sh start".appending(ShellScriptReturnValue)
         case .cameraOff: return "sudo /home/pi/Babypi/picam.sh stop".appending(ShellScriptReturnValue)
         case .shutdown: return "sudo shutdown -h now".appending(ShellScriptReturnValue)
+        case .record: return ""
+        case .reboot: return "sudo reboot".appending(ShellScriptReturnValue)
         }
     }
     
     var shouldValidate: Bool {
         switch self {
-        case .cameraOn, .cameraOff: return true
-        case .temperature, .shutdown: return false
+        case .cameraOn, .cameraOff, .record: return true
+        case .temperature, .shutdown, .reboot: return false
         }
     }
     
     var timeout: Int {
         switch self {
         case .temperature: return 6
-        case .cameraOff, .cameraOn: return 3
-        case .shutdown: return 10
+        case .cameraOff, .cameraOn, .record: return 3
+        case .shutdown, .reboot: return 10
         }
     }
     

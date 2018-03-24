@@ -9,7 +9,7 @@
 import Foundation
 
 enum Command {
-    case cameraOn, cameraOff, temperature, shutdown
+    case cameraOn, cameraOff, temperature, shutdown, record, reboot
 }
 
 extension Command {
@@ -19,8 +19,10 @@ extension Command {
         case .cameraOn: return "Stream an"
         case .cameraOff: return "Stream aus"
         case .shutdown: return "Pi herunterfahren"
+        case .record: return "Video aufzeichnen"
+        case .reboot: return "Pi neustarten"
         }
     }
     
-    static let all = [cameraOn, cameraOff, temperature, shutdown]
+    static let all = [record, cameraOn, cameraOff, temperature, reboot, shutdown]
 }

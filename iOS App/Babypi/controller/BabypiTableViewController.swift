@@ -11,7 +11,7 @@ import UIKit
 fileprivate extension Command {
     var section: Section {
         switch self {
-        case .cameraOff, .cameraOn, .shutdown: return .command
+        case .cameraOff, .cameraOn, .shutdown, .record, .reboot: return .command
         case .temperature: return .sensor
         }
     }
@@ -117,7 +117,7 @@ class BabypiTableViewController: UITableViewController {
         let command = commands[indexPath.section].value[indexPath.row]
         
         switch command {
-        case .cameraOff, .cameraOn, .shutdown:
+        case .cameraOff, .cameraOn, .shutdown, .record, .reboot:
             let cell = tableView.dequeueReusableCell(withIdentifier: CommandTableViewCell.Identifier, for: indexPath) as! CommandTableViewCell
             cell.title = command.title
             return cell
@@ -215,7 +215,7 @@ extension BabypiTableViewController: WebbasedBabypiViewModelDelegate {
                 switch command {
                 case .cameraOn where response.status == "ok" : showPlayer(true)
                 case .cameraOn, .cameraOff: showPlayer(false)
-                case .shutdown, .temperature: break
+                case .shutdown, .temperature, .record, .reboot: break
                 }
                 
                 presentAlert(title: response.status, message: response.message, defaultAction: nil)
