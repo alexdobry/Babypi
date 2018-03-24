@@ -8,6 +8,12 @@
 
 import UIKit
 
+extension String {
+    var nilIfEmpty: String? {
+        return isEmpty ? nil : self
+    }
+}
+
 final class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var hostTextField: UITextField!
@@ -15,9 +21,15 @@ final class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     private let defaults = UserDefaults.standard
+    
+    var didTapDone: () -> () = { }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Settings"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         
         [hostTextField, userTextField, passwordTextField].forEach { $0?.delegate = self }
     }
@@ -30,12 +42,14 @@ final class SettingsTableViewController: UITableViewController {
         passwordTextField.text = defaults.password
     }
     
-    @IBAction func done(_ sender: Any) {
-        defaults.host = hostTextField.text
-        defaults.username = userTextField.text
-        defaults.password = passwordTextField.text
+    deinit { debugPrint(#file, #function) }
+    
+    @objc func done() {
+        defaults.host = hostTextField.text?.nilIfEmpty
+        defaults.username = userTextField.text?.nilIfEmpty
+        defaults.password = passwordTextField.text?.nilIfEmpty
         
-        dismiss(animated: true, completion: nil)
+        didTapDone()
     }
     
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {

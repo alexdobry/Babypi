@@ -14,16 +14,18 @@ class BabypiPlayerViewController: AVPlayerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [])
+        
         play()
     }
     
     func play() {
-        player = AVPlayer(url: URL(string: "http://babypi.local/hls/index.m3u8")!)
+        player = AVPlayer(url: URLs.LiveStream)
+        player!.seek(to: kCMTimePositiveInfinity)
         player!.play()
     }
     
     func stop() {
-        player!.pause()
         player = nil
     }
 }
