@@ -6,15 +6,26 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const babypi = '/home/pi/Babypi'
+const home = '/home/pi'
+const babypi = home + '/Babypi'
 const cameraOn = 'sudo ' + babypi + '/picam.sh start';
 const cameraOff = 'sudo ' + babypi + '/picam.sh stop';
 const lightOn = 'sudo ' + babypi +'/light.sh on';
 const lightOff = 'sudo ' + babypi + '/light.sh off';
+const record= 'sudo ' + home + '/record_auth.sh'
+const reboot= 'sudo reboot'
 const shutdown = 'sudo shutdown -h now'
 
 app.get('/', (req, res) => {
 	res.send('Hello World!');
+});
+
+app.get('/record', (req, res) => {
+	shell.exec(record, {
+		async: true
+	});
+
+	res.json({status: 'ok', message: 'recording started'});
 });
 
 app.get('/dht22', (req, res) => {
@@ -35,15 +46,23 @@ app.post('/light', (req, res) => {
 	res.json(toggle('light', req.body.state, lightOn, lightOff));
 });
 
-app.delete('/babypi', (req, res) => {
-	if (shell.exec(shutdown).code !== 0) {
-		res.json({status: 'ko', message: 'failed to shutdown'});
-	} else {
-		res.json({status: 'ok', message: 'shutting down ...'});
-	}
+app.delete('/babypi/destructive', (req, res) => {
+	shell.exec(shutdown, {
+		async: true
+	});
+	
+	res.json({status: 'ok', message: 'shutting down ...'});
 });
 
-function toggle(device, state, onScript, offScript) {	
+app.delete('/babypi', (req, res) => {
+	shell.exec(reboot, {
+		async: true
+	});
+	
+	res.json({status: 'ok', message: 'rebooting ...'});
+});
+
+function toggle(device, state, onScript, offScript) {
 	switch (state) {
 		case 'on':
 			if (shell.exec(onScript).code !== 0) {

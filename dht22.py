@@ -9,5 +9,4 @@ date = time.time()
 if humidity is not None and temperature is not None:
     print('{ "status" : "OK", "temperature": {0:0.1f}, "humidity": {1:0.1f}, "timestamp": {2:0.0f} }'.format(temperature, humidity, date))
 else:
-    print('{ "status" : "KO", "error": "failed reading from sensor" }')
     sys.exit(1)
