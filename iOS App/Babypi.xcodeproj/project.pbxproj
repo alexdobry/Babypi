@@ -63,6 +63,7 @@
 		FAE61EB81FF3F6A600553EA2 /* SensorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorTableViewCell.xib; sourceTree = "<group>"; };
 		FAEBD8792062875C00CAC886 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		FAEBD87B20628AEA00CAC886 /* BabypiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabypiViewModel.swift; sourceTree = "<group>"; };
+		FAEF8948211F02F100DF32CB /* Babypi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Babypi.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +100,7 @@
 		FA892DA31FEFC7280071BB3B /* Babypi */ = {
 			isa = PBXGroup;
 			children = (
+				FAEF8948211F02F100DF32CB /* Babypi.entitlements */,
 				FAE61EA71FF3DFD500553EA2 /* view */,
 				FAE61EA41FF3DEB200553EA2 /* controller */,
 				FA892DC21FEFD4800071BB3B /* Babypi-Bridging-Header..h */,
@@ -202,6 +204,11 @@
 					FA892DA01FEFC7280071BB3B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -396,15 +403,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Babypi/Babypi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3EAAJC8WM3;
+				DEVELOPMENT_TEAM = 669L8KT4V8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Babypi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-dobrynin.Babypi";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-dobrynin.iOS.Babypi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Alex/Developer/Babypi/iOS App/Babypi/Babypi-Bridging-Header..h";
 				SWIFT_VERSION = 4.0;
@@ -416,15 +424,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Babypi/Babypi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3EAAJC8WM3;
+				DEVELOPMENT_TEAM = 669L8KT4V8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Babypi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-dobrynin.Babypi";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-dobrynin.iOS.Babypi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Alex/Developer/Babypi/iOS App/Babypi/Babypi-Bridging-Header..h";
 				SWIFT_VERSION = 4.0;

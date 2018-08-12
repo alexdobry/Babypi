@@ -24,4 +24,9 @@ extension UserDefaults {
         get { return string(forKey: #function) }
         set { set(newValue, forKey: #function) }
     }
+    
+    var token: String? {
+        get { return string(forKey: #function) }
+        set { set(newValue, forKey: #function) }
+    }
 }
