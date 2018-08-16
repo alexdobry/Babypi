@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 final class App {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -37,12 +38,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var app: App?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if let window = window {
-            app = App(window: window)
+        app = App(window: window!)
+        
+        if UserDefaults.standard.token == nil {
+            resigerForNotifications { granted in
+                guard granted else { return }
+                application.registerForRemoteNotifications()
+            }
         }
         
         window?.tintColor = .primaryColor
         
         return true
+    }
+    
+    private func resigerForNotifications(completion: @escaping (Bool) -> Void) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .badge, .alert]) { (granted, error) in
+            DispatchQueue.main.async { completion(granted) }
+        }
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        debugPrint(#function, token)
+        
+        let ressource =  Ressource(
+            url: URLs.Webservice.appendingPathComponent("apns"),
+            body: ["token" : token],
+            method: "POST",
+            parse: { try JSONDecoder().decode(SimpleResponse.self, from: $0) }
+        )
+        
+        Webservice().request(ressource: ressource, completion: { result in
+            switch result {
+            case .success(let s):
+                debugPrint(s)
+                UserDefaults.standard.token = token
+            case .failure(let e):
+                debugPrint(e)
+            }
+        })
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        debugPrint(#function, error)
     }
 }
