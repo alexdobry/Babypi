@@ -12,7 +12,6 @@ fileprivate extension Command {
     var section: Section {
         switch self {
         case .cameraOff, .cameraOn, .shutdown, .record, .reboot: return .command
-        case .temperature: return .sensor
         }
     }
 }
@@ -73,16 +72,12 @@ class BabypiTableViewController: UITableViewController {
     
     private func setupTableView() {
         tableView.register(
-            UINib(nibName: SensorTableViewCell.Identifier, bundle: nil),
-            forCellReuseIdentifier: SensorTableViewCell.Identifier
-        )
-        
-        tableView.register(
             UINib(nibName: CommandTableViewCell.Identifier, bundle: nil),
             forCellReuseIdentifier: CommandTableViewCell.Identifier
         )
         
-        commands = Dictionary(grouping: Command.all, by: { $0.section }).sorted(by: { $0.key < $1.key })
+        commands = Dictionary(grouping: Command.all, by: { $0.section })
+            .sorted(by: { $0.key < $1.key })
     }
     
     private func setupPlayerView() {
@@ -91,7 +86,7 @@ class BabypiTableViewController: UITableViewController {
     }
     
     private func setupRefreshControl() {
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let indicator = UIActivityIndicatorView(style: .medium)
         view.addSubview(indicator)
         
         indicator.tintColor = .primaryColor
@@ -120,10 +115,6 @@ class BabypiTableViewController: UITableViewController {
         case .cameraOff, .cameraOn, .shutdown, .record, .reboot:
             let cell = tableView.dequeueReusableCell(withIdentifier: CommandTableViewCell.Identifier, for: indexPath) as! CommandTableViewCell
             cell.title = command.title
-            return cell
-        case .temperature:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SensorTableViewCell.Identifier, for: indexPath) as! SensorTableViewCell
-            cell.configure(withTemperature: sensorData?.temperature ?? 0.0, andHumidity: sensorData?.humidity ?? 0.0)
             return cell
         }
     }
@@ -215,7 +206,7 @@ extension BabypiTableViewController: WebbasedBabypiViewModelDelegate {
                 switch command {
                 case .cameraOn where response.status == "ok" : showPlayer(true)
                 case .cameraOn, .cameraOff: showPlayer(false)
-                case .shutdown, .temperature, .record, .reboot: break
+                case .shutdown, .record, .reboot: break
                 }
                 
                 presentAlert(title: response.status, message: response.message, defaultAction: nil)

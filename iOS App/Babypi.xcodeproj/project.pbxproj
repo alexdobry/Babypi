@@ -15,21 +15,14 @@
 		FA892DAF1FEFC7280071BB3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA892DAD1FEFC7280071BB3B /* LaunchScreen.storyboard */; };
 		FA892DB81FEFC8920071BB3B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892DB71FEFC8920071BB3B /* Extensions.swift */; };
 		FA892DBA1FEFC9B80071BB3B /* BabypiPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892DB91FEFC9B80071BB3B /* BabypiPlayerViewController.swift */; };
-		FA892DBC1FEFD37F0071BB3B /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DBB1FEFD37F0071BB3B /* NMSSH.framework */; };
-		FA892DBF1FEFD3C50071BB3B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */; };
-		FA892DC11FEFD42E0071BB3B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FA892DC01FEFD42E0071BB3B /* libz.tbd */; };
-		FA892DC41FEFD6A10071BB3B /* SSHService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA892DC31FEFD6A10071BB3B /* SSHService.swift */; };
 		FA9F56B12038A5B6003EED21 /* CommandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F56AF2038A5B6003EED21 /* CommandTableViewCell.swift */; };
 		FA9F56B22038A5B6003EED21 /* CommandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA9F56B02038A5B6003EED21 /* CommandTableViewCell.xib */; };
 		FADDBF262039A296005A99AF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADDBF252039A296005A99AF /* SettingsTableViewController.swift */; };
-		FAE61E9F1FF3DABC00553EA2 /* UnixResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61E9E1FF3DABC00553EA2 /* UnixResponse.swift */; };
 		FAE61EA11FF3DC8C00553EA2 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EA01FF3DC8C00553EA2 /* Command.swift */; };
 		FAE61EA31FF3DCB100553EA2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EA21FF3DCB100553EA2 /* Result.swift */; };
 		FAE61EA61FF3DEC000553EA2 /* BabypiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EA51FF3DEC000553EA2 /* BabypiTableViewController.swift */; };
 		FAE61EAB1FF3E08900553EA2 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EAA1FF3E08900553EA2 /* PlayerView.swift */; };
 		FAE61EB31FF3F10E00553EA2 /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EB21FF3F10E00553EA2 /* SensorData.swift */; };
-		FAE61EB71FF3F5CA00553EA2 /* SensorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE61EB61FF3F5CA00553EA2 /* SensorTableViewCell.swift */; };
-		FAE61EB91FF3F6A600553EA2 /* SensorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE61EB81FF3F6A600553EA2 /* SensorTableViewCell.xib */; };
 		FAEBD87A2062875C00CAC886 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBD8792062875C00CAC886 /* Networking.swift */; };
 		FAEBD87C20628AEA00CAC886 /* BabypiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBD87B20628AEA00CAC886 /* BabypiViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -48,19 +41,14 @@
 		FA892DBB1FEFD37F0071BB3B /* NMSSH.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NMSSH.framework; sourceTree = "<group>"; };
 		FA892DBE1FEFD3C40071BB3B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FA892DC01FEFD42E0071BB3B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		FA892DC21FEFD4800071BB3B /* Babypi-Bridging-Header..h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Babypi-Bridging-Header..h"; sourceTree = "<group>"; };
-		FA892DC31FEFD6A10071BB3B /* SSHService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHService.swift; sourceTree = "<group>"; };
 		FA9F56AF2038A5B6003EED21 /* CommandTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTableViewCell.swift; sourceTree = "<group>"; };
 		FA9F56B02038A5B6003EED21 /* CommandTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommandTableViewCell.xib; sourceTree = "<group>"; };
 		FADDBF252039A296005A99AF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		FAE61E9E1FF3DABC00553EA2 /* UnixResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnixResponse.swift; sourceTree = "<group>"; };
 		FAE61EA01FF3DC8C00553EA2 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		FAE61EA21FF3DCB100553EA2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FAE61EA51FF3DEC000553EA2 /* BabypiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabypiTableViewController.swift; sourceTree = "<group>"; };
 		FAE61EAA1FF3E08900553EA2 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		FAE61EB21FF3F10E00553EA2 /* SensorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
-		FAE61EB61FF3F5CA00553EA2 /* SensorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorTableViewCell.swift; sourceTree = "<group>"; };
-		FAE61EB81FF3F6A600553EA2 /* SensorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorTableViewCell.xib; sourceTree = "<group>"; };
 		FAEBD8792062875C00CAC886 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		FAEBD87B20628AEA00CAC886 /* BabypiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabypiViewModel.swift; sourceTree = "<group>"; };
 		FAEF8948211F02F100DF32CB /* Babypi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Babypi.entitlements; sourceTree = "<group>"; };
@@ -71,9 +59,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA892DC11FEFD42E0071BB3B /* libz.tbd in Frameworks */,
-				FA892DBF1FEFD3C50071BB3B /* CFNetwork.framework in Frameworks */,
-				FA892DBC1FEFD37F0071BB3B /* NMSSH.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +88,6 @@
 				FAEF8948211F02F100DF32CB /* Babypi.entitlements */,
 				FAE61EA71FF3DFD500553EA2 /* view */,
 				FAE61EA41FF3DEB200553EA2 /* controller */,
-				FA892DC21FEFD4800071BB3B /* Babypi-Bridging-Header..h */,
 				FA892DB61FEFC88B0071BB3B /* model */,
 				FA892DA41FEFC7280071BB3B /* AppDelegate.swift */,
 				FA892DA81FEFC7280071BB3B /* Main.storyboard */,
@@ -152,9 +136,7 @@
 		FAE61EA71FF3DFD500553EA2 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				FAE61EB81FF3F6A600553EA2 /* SensorTableViewCell.xib */,
 				FAE61EAA1FF3E08900553EA2 /* PlayerView.swift */,
-				FAE61EB61FF3F5CA00553EA2 /* SensorTableViewCell.swift */,
 				FA9F56AF2038A5B6003EED21 /* CommandTableViewCell.swift */,
 				FA9F56B02038A5B6003EED21 /* CommandTableViewCell.xib */,
 			);
@@ -164,8 +146,6 @@
 		FAEBD8782062874500CAC886 /* ssh */ = {
 			isa = PBXGroup;
 			children = (
-				FA892DC31FEFD6A10071BB3B /* SSHService.swift */,
-				FAE61E9E1FF3DABC00553EA2 /* UnixResponse.swift */,
 				FAE61EA01FF3DC8C00553EA2 /* Command.swift */,
 			);
 			path = ssh;
@@ -198,11 +178,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Alexander Dobrynin";
 				TargetAttributes = {
 					FA892DA01FEFC7280071BB3B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -236,7 +217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA892DAF1FEFC7280071BB3B /* LaunchScreen.storyboard in Resources */,
-				FAE61EB91FF3F6A600553EA2 /* SensorTableViewCell.xib in Resources */,
 				FA892DAC1FEFC7280071BB3B /* Assets.xcassets in Resources */,
 				FA892DAA1FEFC7280071BB3B /* Main.storyboard in Resources */,
 				FA9F56B22038A5B6003EED21 /* CommandTableViewCell.xib in Resources */,
@@ -257,14 +237,11 @@
 				FAEBD87C20628AEA00CAC886 /* BabypiViewModel.swift in Sources */,
 				FAE61EAB1FF3E08900553EA2 /* PlayerView.swift in Sources */,
 				FA892DB81FEFC8920071BB3B /* Extensions.swift in Sources */,
-				FA892DC41FEFD6A10071BB3B /* SSHService.swift in Sources */,
 				FAEBD87A2062875C00CAC886 /* Networking.swift in Sources */,
 				FAE61EB31FF3F10E00553EA2 /* SensorData.swift in Sources */,
-				FAE61E9F1FF3DABC00553EA2 /* UnixResponse.swift in Sources */,
 				FA4B75CD2039A52900D6602A /* UserDefaults+Storage.swift in Sources */,
 				FAE61EA31FF3DCB100553EA2 /* Result.swift in Sources */,
 				FA892DA51FEFC7280071BB3B /* AppDelegate.swift in Sources */,
-				FAE61EB71FF3F5CA00553EA2 /* SensorTableViewCell.swift in Sources */,
 				FAE61EA11FF3DC8C00553EA2 /* Command.swift in Sources */,
 				FA9F56B12038A5B6003EED21 /* CommandTableViewCell.swift in Sources */,
 			);
@@ -306,6 +283,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -313,6 +291,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -340,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -363,6 +342,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -370,6 +350,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -391,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -405,17 +386,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Babypi/Babypi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 669L8KT4V8;
+				DEVELOPMENT_TEAM = E5ZZ8MJF58;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Babypi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-dobrynin.iOS.Babypi";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.th-koeln.de.Babypi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Alex/Developer/Babypi/iOS App/Babypi/Babypi-Bridging-Header..h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -426,17 +407,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Babypi/Babypi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 669L8KT4V8;
+				DEVELOPMENT_TEAM = E5ZZ8MJF58;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Babypi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alex-dobrynin.iOS.Babypi";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.th-koeln.de.Babypi";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/Alex/Developer/Babypi/iOS App/Babypi/Babypi-Bridging-Header..h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

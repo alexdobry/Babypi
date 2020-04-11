@@ -9,13 +9,12 @@
 import Foundation
 
 enum Command {
-    case cameraOn, cameraOff, temperature, shutdown, record, reboot
+    case cameraOn, cameraOff, shutdown, record, reboot
 }
 
 extension Command {
     var title: String {
         switch self {
-        case .temperature: return "Temperatur & Luftfeuchtigkeit"
         case .cameraOn: return "Stream an"
         case .cameraOff: return "Stream aus"
         case .shutdown: return "Pi herunterfahren"
@@ -24,5 +23,5 @@ extension Command {
         }
     }
     
-    static let all = [record, cameraOn, cameraOff, temperature, reboot, shutdown]
+    static let all = [record, cameraOn, cameraOff, reboot, shutdown]
 }

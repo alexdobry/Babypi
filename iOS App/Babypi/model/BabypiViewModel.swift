@@ -65,18 +65,6 @@ final class WebbasedBabypiViewModel {
             webservice.request(ressource: r, completion: { result in
                 self.delegate?.didEndRequest(for: command, with: result.map { WebbasedReturn.simpleResponse(r: $0) })
             })
-            
-        case .temperature:
-            let r = Ressource(
-                url: baseUrl.appendingPathComponent("dht22"),
-                body: [:],
-                method: "GET",
-                parse: { try self.decoder.decode(SensorData.self, from: $0) }
-            )
-            
-            webservice.request(ressource: r, completion: { result in
-                self.delegate?.didEndRequest(for: command, with: result.map { WebbasedReturn.sensorData(s: $0) })
-            })
         case .record:
             let r = Ressource(
                 url: baseUrl.appendingPathComponent("record"),
